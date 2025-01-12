@@ -118,21 +118,21 @@ void	km_set(int region,keydef_t *def,int k1,int k2)
 		{
 		 if (def==NULL|| def->kdm!=KDM_macro)
 		 	{
-		 	 inkey_wait("¥­¡¼¥Ü¡¼¥É¥Ş¥¯¥í¥¨¥é¡¼ km_set");
+		 	 inkey_wait("ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒã‚¯ãƒ­ã‚¨ãƒ©ãƒ¼ km_set");
 		 	 return;
 		 	}
 
 		 list=km_seek(def->funcNo);
 		 if (list==NULL)
 		 	{
-		 	 inkey_wait("¥­¡¼¥Ü¡¼¥É¥Ş¥¯¥í¥¨¥é¡¼ km_set NULL");
+		 	 inkey_wait("ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒã‚¯ãƒ­ã‚¨ãƒ©ãƒ¼ km_set NULL");
 		 	 return;
 		 	}
 		 free(list->buf);
 		 list->buf=mem_alloc(km.x*sizeof(int));
 		 list->n=km.x;
 		 memcpy(list->buf,km.buf,km.x*sizeof(int));
-		 system_msg("KeyMacro ¤ò¥»¥Ã¥È¤·¤Ş¤·¤¿¡£");
+		 system_msg("KeyMacro ã‚’ã‚»ãƒƒãƒˆã—ã¾ã—ãŸã€‚");
 		 return;
 		}
 
@@ -142,7 +142,7 @@ void	km_set(int region,keydef_t *def,int k1,int k2)
 	memcpy(list->buf,km.buf,km.x*sizeof(int));
 	list->next=NULL;
 
-	system_msg("KeyMacro¤ò¥»¥Ã¥È¤·¤Ş¤·¤¿¡£");
+	system_msg("KeyMacroã‚’ã‚»ãƒƒãƒˆã—ã¾ã—ãŸã€‚");
 
 	n=0;
 	if (km.list==NULL)
@@ -165,7 +165,7 @@ void	km_macro(keydef_t *def)
 
 	if (km.mode==KM_do)
 		{
-		 inkey_wait("¥­¡¼¥Ü¡¼¥É¥Ş¥¯¥í¥¨¥é¡¼ KM_do");
+		 inkey_wait("ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒã‚¯ãƒ­ã‚¨ãƒ©ãƒ¼ KM_do");
 		 km.mode=KM_none;
 		 return;
 		}
@@ -173,7 +173,7 @@ void	km_macro(keydef_t *def)
 	list=km_seek(def->funcNo);
 	if (list==NULL)
 		{
-		 inkey_wait("¥­¡¼¥Ü¡¼¥É¥Ş¥¯¥í¥¨¥é¡¼ km_seek");
+		 inkey_wait("ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãƒã‚¯ãƒ­ã‚¨ãƒ©ãƒ¼ km_seek");
 		 km.mode=KM_none;
 		 return;
 		}
@@ -265,9 +265,9 @@ int 	get_keyf(int region)
 		return -1;
 
 	if (km.mode==KM_set)
-		system_msg("KeyMacroÀßÄêÃæ");
+		system_msg("KeyMacroè¨­å®šä¸­");
 	if (km.mode==KM_do)
-		system_msg("KeyMacroµ¯Æ°Ãæ");
+		system_msg("KeyMacroèµ·å‹•ä¸­");
 
 	key1=km_getkey();
 	if (key1!=-1)
@@ -303,7 +303,7 @@ int 	get_keyf(int region)
 		 def=keydef_get(region, key1, key2);
 		}
 
-/* ÄÌ¾ï¤ÎÍ­¸ú¤Ê¥­¡¼ */
+/* é€šå¸¸ã®æœ‰åŠ¹ãªã‚­ãƒ¼ */
 	if (def!=NULL&& def!=(void *)-1&& def->kdm==KDM_func)
 		{
 		 key1=def->funcNo;
@@ -317,18 +317,18 @@ int 	get_keyf(int region)
 		 return key1;
 		}
 
-/* ¥Ş¥¯¥íÅĞÏ¿Ãæ */
+/* ãƒã‚¯ãƒ­ç™»éŒ²ä¸­ */
 	if (km.mode==KM_set)
 		{
 		 km_set(region,def,key1,key2);
 		 return -1;
 		}
 
-/* Ìµ¸ú¤Ê¥­¡¼ */
+/* ç„¡åŠ¹ãªã‚­ãƒ¼ */
 	if (def==(void *)-1)
 		return -1;
 
-/* ¥Ş¥¯¥íµ¯Æ° */
+/* ãƒã‚¯ãƒ­èµ·å‹• */
 	km_macro(def);
 	return -1;
 }
@@ -336,9 +336,9 @@ int 	get_keyf(int region)
 /*
 	def					0			|			-1
 	def->mode	func	N/A			|macro		N/A
-				func	normalkey	|def		²¿¤âÌµ¤·
-	o ÅĞÏ¿Ãæ	o		o			|-			-
-	o ÄÌ¾ï»ş	o		o			|macroµ¯Æ°	o
+				func	normalkey	|def		ä½•ã‚‚ç„¡ã—
+	o ç™»éŒ²ä¸­	o		o			|-			-
+	o é€šå¸¸æ™‚	o		o			|macroèµ·å‹•	o
 */
 
 

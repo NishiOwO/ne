@@ -44,7 +44,7 @@ void	se_delete(int n, bool f)
 
 void	se_nazo()
 {
-// FREE¥â¡¼¥É¤Î»ş¤Ë°ìÃ¶¡¢¥«¡¼¥½¥ë¤Î°ÌÃÖ¤Ş¤Ç¥¹¥Ú¡¼¥¹¤ÇËä¤á¤ë¡£
+// FREEãƒ¢ãƒ¼ãƒ‰ã®æ™‚ã«ä¸€æ—¦ã€ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®ã¾ã§ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã‚‹ã€‚
 
 //	LeditInput(CNTRL(' '), NONE);
 	Ledit(NONE);
@@ -158,7 +158,7 @@ SHELL	void	op_del_char()
 
 	se_nazo();
 
-	if (GetBufferOffset()>=strlen(csrle.buf)) /* ¹ÔËö¤Ë¤ª¤ì¤Ğ */
+	if (GetBufferOffset()>=strlen(csrle.buf)) /* è¡Œæœ«ã«ãŠã‚Œã° */
 		{
 		 line_catnext();
 		 return;
@@ -225,11 +225,11 @@ void	split(bool f)
 
 	strcpy(buf_nl+a,csrle.buf+n);
 
-/* split¤µ¤ì¤ë¥é¥¤¥ó */
+/* splitã•ã‚Œã‚‹ãƒ©ã‚¤ãƒ³ */
 	csrle.buf[n]='\0';
 	csr_leupdate();
 
-/* ¿·¤·¤¯ÄÉ²Ã¤µ¤ì¤ë¥é¥¤¥ó */
+/* æ–°ã—ãè¿½åŠ ã•ã‚Œã‚‹ãƒ©ã‚¤ãƒ³ */
 	ed=MakeLine(buf_nl);
 	InsertLine(GetList(GetLineOffset()), ed);
 
@@ -384,7 +384,7 @@ SHELL	void	op_jump_line()
 		n=atoi(keyf_getarg(0)); else
 		{
 		 *buf='\0';
-		 if (GetS("¹ÔÈÖ¹æ:",buf)==ESCAPE)
+		 if (GetS("è¡Œç•ªå·:",buf)==ESCAPE)
 		 	return ;
 		 n=atol(buf);
 		}
@@ -426,7 +426,7 @@ SHELL	void	op_jump_mark()
 		n=0;
 
 	lm_mark(GetLineOffset(), n);
-	sprintf(buf, "mark¤·¤Ş¤·¤¿¡£ #%d",n);
+	sprintf(buf, "markã—ã¾ã—ãŸã€‚ #%d",n);
 	system_msg(buf);
 }
 

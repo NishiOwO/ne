@@ -107,7 +107,7 @@ void	keyf_set(int region,const char *k,const char *s)
 	if (kdp==NULL|| kdp==(keydef_t *)-1)
 		kdp=keydef_set(region, KDM_func, n, key[0], key[1]);
 
-// ?? ¾å¤ÎifÊ¬¤ÎÃæ¤Ë¤¤¤ì¤Æ¤ª¤¤¤Æ¤è¤¤¤Î¤Ç¤Ï¤Ê¤«¤Ã¤¿¤«?
+// ?? ä¸Šã®ifåˆ†ã®ä¸­ã«ã„ã‚Œã¦ãŠã„ã¦ã‚ˆã„ã®ã§ã¯ãªã‹ã£ãŸã‹?
 	if (p!=NULL&& kdp!=NULL&& kdp!= (keydef_t *)-1)
 	 	keyf_setarg(kdp, p); else
 	 	kdp->args[0]=NULL;

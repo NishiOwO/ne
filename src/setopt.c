@@ -731,7 +731,7 @@ void	config_read(char *path)
 		 	 char	buf[MAXLINESTR+1];
 		 	 int 	key[2];
 		 	 keydef_t	*kdp;
-// Î×»ş
+// è‡¨æ™‚
 
 		 	 switch(reg_chr)
 		 	 	{
@@ -799,7 +799,7 @@ void	config_read(char *path)
 
 #if 0
 
-char	*dval_extract(const char *s, char *t) // ¤È¤ê¤¢¤¨¤º
+char	*dval_extract(const char *s, char *t) // ã¨ã‚Šã‚ãˆãš
 {
 	char	*p;
 	char	buf[MAXLINESTR+1];

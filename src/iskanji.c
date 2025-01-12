@@ -189,7 +189,7 @@ int 	kanji_tkprev(const char *s,int a,bool f)
 
 
 /* kanji */
-/* table¡¢¥¢¥ë¥´¥ê¥º¥à¤Ê¤É¤Ë ekc ¤Î¥³¡¼¥É¤òÍøÍÑ¤·¤Æ¤¤¤Ş¤¹¡£*/
+/* tableã€ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ãªã©ã« ekc ã®ã‚³ãƒ¼ãƒ‰ã‚’åˆ©ç”¨ã—ã¦ã„ã¾ã™ã€‚*/
 
 
 //#define	issjis2(c)	((((u_char)c)>=0x40&&((u_char)c)<=0x7e)||(((u_char)c)>=0x80&&((u_char)c)<=0xfc))
@@ -462,7 +462,7 @@ void	kanji_toeuc(char *s,size_t bytes,const char *t,bool f_sjis,int *jm)
 		 	 	 continue;
 
 		 	  case '&':
-		 	  	 if (*t=='@') // JIS X0208-1990 ÀÚ¤êÂØ¤¨½àÈ÷
+		 	  	 if (*t=='@') // JIS X0208-1990 åˆ‡ã‚Šæ›¿ãˆæº–å‚™
 		 	  	 	{
 		 	  	 	 ++t;
 		 	  	 	 continue;
@@ -697,7 +697,7 @@ int 	kanji_countdsp(char c, int n)
 	if (c=='\t' && n!=-1)
 		return (n/sysinfo.tabstop+1)*sysinfo.tabstop - n;
 
-	if ((u_char)c==0x8e)	// È¾³Ñ¤«¤Ê
+	if ((u_char)c==0x8e)	// åŠè§’ã‹ãª
 		return 2;
 
 	if (iseuc(c)|| (u_char)c==0x8f|| iscntrl(c))

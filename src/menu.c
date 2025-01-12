@@ -105,14 +105,14 @@ void	makev_proc(int a, mitem_t *mip, void *vp)
 	va_list 	args;
 	char	*p;
 
-	args=*(va_list *)vp;
+	memcpy(&args, (va_list *)vp, sizeof(args));
 
 	p=va_arg(args, char *);
 	if (p==NULL)
 		strcpy(mip->str,"null"); else
 		strcpy(mip->str,p);
 
-	*(va_list *)vp=args;
+	memset(vp, &args, sizeof(args));
 }
 
 
